@@ -136,13 +136,7 @@ class ClientApp extends React.Component {
           element('br'),
           element('button',{onClick: (event) => this.handleGetMessages(event,null)},'Get all messages'),
           this.state.messageFetchedErrorStatus,
-          element('h3',null,
-            [
-              'Messages',
-              "\u00a0","\u00a0","\u00a0",
-              element('button',{onClick: this.handleDeleteMessages},'Delete All')
-            ]
-          ),
+          element('h3',null,'Messages'),
           element('ul',null,
               this.state.messageFetched !== null?
                 this.state.messageFetched.map((data)=>(
@@ -151,7 +145,12 @@ class ClientApp extends React.Component {
                 : null
           ),
           element('hr'),  
-          element('h2',null,'#3 Websocket - Real Time Messages'),
+          element('h2',null,
+          [
+            '#3 Websocket - Real Time Messages',
+            "\u00a0","\u00a0","\u00a0",
+            element('button',{onClick: this.handleDeleteMessages},'Delete All'),
+          ]),
           element('ul',null,
           this.state.realTimeMessages !== null?
             this.state.realTimeMessages.map((data)=>(
